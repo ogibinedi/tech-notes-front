@@ -21,7 +21,7 @@ const Public = () => {
                         <br />
                         <p><strong>Owner: John Doe</strong></p>
                         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                            <button type="button" className="btn btn-outline-warning btn-lg px-4 me-sm-3 fw-bold" onClick={() => navigate('/login')}>Employee Login</button>
+                            <button type="button" className="btn btn-outline-primary btn-lg px-4 me-sm-3 fw-bold" onClick={() => navigate('/login')}>Employee Login</button>
                         </div>
                     </div>
                 </div>

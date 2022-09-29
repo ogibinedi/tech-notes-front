@@ -10,7 +10,7 @@ const DashFooter = () => {
     if (pathname !== '/dash') {
         goHomeButton = (
             <button
-                className="dash-footer__button icon-button"
+                className="btn btn-sm btn-outline-primary"
                 title="Home"
                 onClick={onGoHomeClick}>
                 <FontAwesomeIcon icon={faHouse} />
@@ -19,10 +19,14 @@ const DashFooter = () => {
     }
 
     const content = (
-        <footer className="dash-footer">
-            {goHomeButton}
-            <p>Current User: </p>
-            <p>Status: </p>
+        <footer className="footer mt-auto py-3 bg-dark">
+            <div className="container">
+                <span className="text-muted">
+                    {goHomeButton} &nbsp;&nbsp;
+                    <span>Current User:</span> &nbsp;&nbsp;
+                    <span>Status:</span>
+                </span>
+            </div>
         </footer>
     )
     return content
