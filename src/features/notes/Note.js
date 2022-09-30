@@ -18,7 +18,7 @@ const Note = ({ noteId }) => {
             day: 'numeric',
             month: 'long'
         })
-        const handleEdit = () => navigate('/dash/notes/${noteId}')
+        const handleEdit = () => navigate(`/dash/notes/${noteId}`)
 
         return (
             <tr>

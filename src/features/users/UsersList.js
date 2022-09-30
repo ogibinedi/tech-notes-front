@@ -1,14 +1,22 @@
 import { useGetUsersQuery } from './usersApiSlice'
 import User from './User'
+import { useNavigate } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const UsersList = () => {
+    const navigate = useNavigate()
     const {
         data: users,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetUsersQuery()
+    } = useGetUsersQuery(undefined, {
+        pollingInterval: 60000,
+        refetchOnFocus: true,
+        refetchOnMountOrArgChange: true
+    })
 
     let content
 
@@ -28,10 +36,13 @@ const UsersList = () => {
             : null
         content = (
             <div className="container px-4 py-5">
-                <h2 className="pb-2 border-bottom">Users Management</h2>
-                <div className="row col-md-6 align-items-md-center g-5 py-5">
+                <h2 className="pb-2 border-bottom col-md-8">Users Management</h2>
+                <div className="mb-0 col-md-8">
+                    <button className='btn btn-outline-primary float-end' onClick={() => navigate('/dash/users/new')}><FontAwesomeIcon icon={faPlus} /> Add User</button>
+                </div>
+                <div className="col-md-8 g-5 py-5">
                     <div className="d-flex flex-column ailgn-item-start gap-2">
-                        <div className="card shadow-no">
+                        <div className="card shadow-no ">
                             <div className="card-body">
                                 <div className="table-responsive">
                                     <table className="table table-dark table-striped table-hover">

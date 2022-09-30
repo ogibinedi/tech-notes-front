@@ -1,4 +1,4 @@
-import { faStickyNote, faUserCog } from '@fortawesome/free-solid-svg-icons'
+import { faBookOpen, faStickyNote, faUserCog, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -24,11 +24,25 @@ const Welcome = () => {
                         <p className="text-muted">Halaman ini digunakan untuk memenej catatan, membaca, menambah, mengedit dan menghapus</p>
                     </div>
                     <div className="d-flex flex-column gap-2" style={{ paddingLeft: "25px" }}>
+                        <Link to="/dash/notes/new" className="btn btn-outline-primary btn-lg" style={{ width: "50px" }}>
+                            <FontAwesomeIcon icon={faBookOpen} />
+                        </Link>
+                        <h4 className="fw-semibold mb-0">Add New Note</h4>
+                        <p className="text-muted">Shortcut jika ingin mebuat note baru tanpa harus melihat daftar note</p>
+                    </div>
+                    <div className="d-flex flex-column gap-2" style={{ paddingLeft: "25px" }}>
                         <Link to="/dash/users" className="btn btn-outline-primary btn-lg" style={{ width: "50px" }}>
                             <FontAwesomeIcon icon={faUserCog} />
                         </Link>
                         <h4 className="fw-semibold mb-0">View User Settings</h4>
                         <p className="text-muted">Halaman ini digunakan untuk memenej RBAC</p>
+                    </div>
+                    <div className="d-flex flex-column gap-2" style={{ paddingLeft: "25px" }}>
+                        <Link to="/dash/users/new" className="btn btn-outline-primary btn-lg" style={{ width: "50px" }}>
+                            <FontAwesomeIcon icon={faUserPlus} />
+                        </Link>
+                        <h4 className="fw-semibold mb-0">Add New User</h4>
+                        <p className="text-muted">Shortcut untuk membuat user baru sekaligus rbac</p>
                     </div>
                 </div>
             </div>

@@ -1,14 +1,22 @@
 import { useGetNotesQuery } from './notesApiSlice'
 import Note from './Note';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom';
 
 const NotesList = () => {
+    const navigate = useNavigate()
     const {
         data: notes,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetNotesQuery()
+    } = useGetNotesQuery(undefined, {
+        pollingInterval: 15000,
+        refetchOnFocus: true,
+        refetchOnMountOrArgChange: true
+    })
 
     let content
 
@@ -29,7 +37,8 @@ const NotesList = () => {
         content = (
             <div className="container px-4 py-5">
                 <h2 className="pb-2 border-bottom">List of Notes</h2>
-                <div className="row col-md-12 align-items-md-center g-5 py-5">
+                <div><button className='btn btn-outline-primary float-end' onClick={() => navigate('/dash/notes/new')}><FontAwesomeIcon icon={faPlus} /> Add Note</button></div>
+                <div className="col-md-12 align-items-md-center g-5 py-5">
                     <div className="d-flex flex-column ailgn-item-start gap-2">
                         <div className="card shadow-no">
                             <div className="card-body">
