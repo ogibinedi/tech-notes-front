@@ -23,9 +23,17 @@ const UsersList = () => {
     if (isLoading) content = <p>Loading...</p>
 
     if (isError) {
-        content = <div className="alert alert-danger" role="alert">
-            {error?.data?.message}
-        </div>
+        return content = (
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-121 mt-5">
+                        <div className="alert alert-danger" role="alert">
+                            <strong>Warning!</strong> {error?.data?.message}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
     }
 
     if (isSuccess) {

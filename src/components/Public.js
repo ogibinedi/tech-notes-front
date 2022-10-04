@@ -9,7 +9,7 @@ const Public = () => {
         <section className='container' style={{ marginTop: "80px" }}>
             <div className="bg-dark text-secondary px-4 py-5">
                 <div className="py-5">
-                    <h1 className="display-5 fw-bold text-white text-center">Wakanda's Repairs <FontAwesomeIcon icon={faWrench} /></h1>
+                    <h1 className="display-5 fw-bold text-white text-center">TechNotesApp <FontAwesomeIcon icon={faWrench} /></h1>
                     <div className="col-lg-6 mx-auto">
                         <p className="fs-5 mb-4">Berlokasi di negeri wakanda yang indah, tempat yang nyaman dan strategis</p>
                         <address className='public__addr'>

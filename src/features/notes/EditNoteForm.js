@@ -65,7 +65,7 @@ const EditNoteForm = ({ note, users }) => {
         )
     })
 
-    const errClass = (isError || isDelError) ? "invalid-feedback" : ""
+    const errClass = (isError || isDelError) ? "alert-danger" : ""
     const validTitleClass = !title ? 'is-invalid' : ''
     const validTextClass = !text ? 'is-invalid' : ''
 
@@ -75,6 +75,9 @@ const EditNoteForm = ({ note, users }) => {
         <div className="container px-4 py-5">
             <h2 className="pb-2 border-bottom">Update Note</h2>
             <div className="row">
+                <div className={`alert ${errClass}`}>
+                    {errContent}
+                </div>
                 <div className="mt-2 mb-0">
                     <span>Created: {created}</span> | <span>Updated: {updated}</span>
                     <button className="btn btn-outline-primary float-end" onClick={() => navigate('/dash/notes')}><FontAwesomeIcon icon={faArrowLeft} /> Kembali</button>
@@ -96,23 +99,17 @@ const EditNoteForm = ({ note, users }) => {
                                         value={title}
                                         onChange={onTitleChanged}
                                     />
-                                    <div className={errClass}>
-                                        {error?.data?.message}
-                                    </div>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="textInput" className="form-label text-dark">Konten</label>
                                     <textarea
-                                        className={`form-control ${validTitleClass}`}
+                                        className={`form-control ${validTextClass}`}
                                         id="text"
                                         name="text"
                                         placeholder="Konten"
                                         value={text}
                                         onChange={onTextChanged}
                                     />
-                                    <div className={errClass}>
-                                        {error?.data?.message}
-                                    </div>
                                 </div>
                                 <div className="form-check mb-3">
                                     <input
@@ -137,9 +134,6 @@ const EditNoteForm = ({ note, users }) => {
                                     >
                                         {options}
                                     </select>
-                                    <div className={errClass}>
-                                        {error?.data?.message}
-                                    </div>
                                 </div>
                                 <div className="mb-3">
                                     <button

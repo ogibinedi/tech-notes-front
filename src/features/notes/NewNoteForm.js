@@ -79,7 +79,7 @@ const NewNoteForm = ({ users }) => {
                                 <div className="mb-3">
                                     <label htmlFor="textInput" className="form-label text-dark">Konten</label>
                                     <textarea
-                                        className={`form-control ${validTitleClass}`}
+                                        className={`form-control ${validTextClass}`}
                                         id="text"
                                         name="text"
                                         placeholder="Konten"
