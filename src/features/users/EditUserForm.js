@@ -18,7 +18,7 @@ const EditUserForm = ({ user }) => {
 
     const [deleteUser, {
         isSuccess: isDelSuccess,
-        isError: isDelError,
+        // isError: isDelError,
         error: delerror
     }] = useDeleteUserMutation()
 
