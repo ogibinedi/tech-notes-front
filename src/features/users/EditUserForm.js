@@ -149,7 +149,7 @@ const EditUserForm = ({ user }) => {
                                         {user.active === true ? `ACTIVE:` : `NON ACTIVE`}
                                     </label>
                                 </div>
-                                <div className="mb-3">
+                                <div className="mb-3 col-2">
                                     <label htmlFor="selectOption" className="form-label text-dark">ASSIGNED ROLES</label>
                                     <select
                                         id="roles"
