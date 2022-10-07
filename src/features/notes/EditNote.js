@@ -3,7 +3,7 @@ import EditNoteForm from "./EditNoteForm";
 import Spinner from "../../components/Spinner";
 import { useGetNotesQuery } from "./notesApiSlice";
 import { useGetUsersQuery } from "../users/usersApiSlice";
-import { useAuth } from '../../hooks/useAuth'
+import useAuth from '../../hooks/useAuth'
 import useTitle from "../../hooks/useTitle";
 
 const EditNote = () => {
