@@ -20,14 +20,14 @@ const PersistLogin = () => {
         if (effectRan.current === true || process.env.NODE_ENV !== "development") {
             // React 18 Strict Mode
             const verifyRefreshToken = async () => {
-                console.log("Verifying refresh token");
+                // console.log("Verifying refresh token");
                 try {
                     //const response
                     await refresh();
                     // { accessToken } = response.data
                     setTrueSuccess(true);
                 } catch (err) {
-                    console.error(err);
+                    // console.error(err);
                 }
             };
             if (!token && persist) verifyRefreshToken();
@@ -38,15 +38,15 @@ const PersistLogin = () => {
     let content;
     if (!persist) {
         // persist no
-        console.log("no persist");
+        // console.log("no persist");
         content = <Outlet />;
     } else if (isLoading) {
         // persist yes token no
-        console.log("loading");
+        // console.log("loading");
         content = <Spinner />;
     } else if (isError) {
         // persist yes  token no
-        console.log("error");
+        // console.log("error");
         content = (
             <div className="col-6 container-fluid mt-5 align-items-center jsutify-content-center" style={{ margin: "auto" }}>
                 <div className="alert alert-danger">
@@ -57,12 +57,12 @@ const PersistLogin = () => {
         );
     } else if (isSuccess && trueSuccess) {
         // persist: yes, token: yes
-        console.log("success");
+        // console.log("success");
         content = <Outlet />;
     } else if (token && isUninitialized) {
         // persist: yes , token: yes
-        console.log("token and uninit");
-        console.log(isUninitialized);
+        // console.log("token and uninit");
+        // console.log(isUninitialized);
         content = <Outlet />;
     }
     return content;
