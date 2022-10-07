@@ -50,8 +50,8 @@ const PersistLogin = () => {
         content = (
             <div className="col-6 container-fluid mt-5 align-items-center jsutify-content-center" style={{ margin: "auto" }}>
                 <div className="alert alert-danger">
-                    <strong>Warning!</strong> {error?.data?.message} <br />
-                    <Link to="/login" className="text-primary">Please login again</Link>
+                    {error?.data?.message} &nbsp;
+                    <Link to="/login" className="alert-link" style={{ textDecoration: "underline" }}>Please login first</Link>
                 </div>
             </div>
         );

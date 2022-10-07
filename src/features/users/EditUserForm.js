@@ -18,7 +18,7 @@ const EditUserForm = ({ user }) => {
 
     const [deleteUser, {
         isSuccess: isDelSuccess,
-        // isError: isDelError,
+        isError: isDelError,
         error: delerror
     }] = useDeleteUserMutation()
 
@@ -88,7 +88,7 @@ const EditUserForm = ({ user }) => {
         canSave = [roles.length, validUsername].every(Boolean) && !isLoading
     }
 
-    const errClass = isError ? "invalid-feedback" : ""
+    const errClass = (isError || isDelError) ? "alert-danger" : ""
     const validUserClass = !validUsername ? 'is-invalid' : ''
     const validPwdClass = !validPassword ? 'is-invalid' : ''
     const validRolesClass = !Boolean(roles.length) ? 'is-invalid' : ''
@@ -97,12 +97,15 @@ const EditUserForm = ({ user }) => {
 
     const content = (
         <div className="container px-4 py-5">
-            <h2 className="pb-2 border-bottom">Create a New User</h2>
+            <h2 className="pb-2 border-bottom">Update a User</h2>
             <div className="row">
                 <div className="mt-2 mb-0"><button className="btn btn-outline-primary float-end" onClick={() => navigate('/dash/users')}><FontAwesomeIcon icon={faArrowLeft} /> Kembali</button></div>
                 <div className="col-md-12">
                     <div className="card shadow-no mt-3">
                         <div className="card-body">
+                            <div className={`alert m-0 ${errClass}`} role="alert">
+                                {errContent}
+                            </div>
                             <form className="form-controll" onSubmit={e => e.preventDefault()}>
                                 <div className="mb-3">
                                     <label htmlFor="usernameInput" className="form-label text-dark">Username: [3-20 karakter]</label>
@@ -117,9 +120,6 @@ const EditUserForm = ({ user }) => {
                                         value={username}
                                         onChange={onUsernameChanged}
                                     />
-                                    <div className={errClass}>
-                                        {errContent}
-                                    </div>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="passwordInput" className="form-label text-dark">Password: [4-12 karakter (!@#$%)]</label>
@@ -133,9 +133,6 @@ const EditUserForm = ({ user }) => {
                                         placeholder="Password"
                                         aria-label="Password"
                                     />
-                                    <div className={errClass}>
-                                        {errContent}
-                                    </div>
                                 </div>
                                 <div className="form-check mb-3">
                                     <input
@@ -149,7 +146,7 @@ const EditUserForm = ({ user }) => {
                                         {user.active === true ? `ACTIVE:` : `NON ACTIVE`}
                                     </label>
                                 </div>
-                                <div className="mb-3 col-2">
+                                <div className="mb-3 col-4">
                                     <label htmlFor="selectOption" className="form-label text-dark">ASSIGNED ROLES</label>
                                     <select
                                         id="roles"
@@ -162,9 +159,6 @@ const EditUserForm = ({ user }) => {
                                     >
                                         {options}
                                     </select>
-                                    <div className={errClass}>
-                                        {errContent}
-                                    </div>
                                 </div>
                                 <div className="mb-3">
                                     <button

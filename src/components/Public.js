@@ -1,9 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStickyNote, faUserGear } from "@fortawesome/free-solid-svg-icons";
+import { faDashboard, faStickyNote, faUserGear } from "@fortawesome/free-solid-svg-icons";
+import useAuth from "../hooks/useAuth"
+import { Button } from "react-bootstrap";
 
 const Public = () => {
+    const isAuth = useAuth();
     const navigate = useNavigate();
     const content = (
         <section className="container" style={{ marginTop: "80px" }}>
@@ -34,6 +37,7 @@ const Public = () => {
                             >
                                 <FontAwesomeIcon icon={faUserGear} /> Employee Login
                             </button>
+                            <Button variant="primary" onClick={() => navigate('/dash')}><FontAwesomeIcon icon={faDashboard} /> Go to Dashboard</Button>
                         </div>
                     </div>
                 </div>

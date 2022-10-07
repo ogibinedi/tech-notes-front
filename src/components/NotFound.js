@@ -4,7 +4,7 @@ const NotFound = () => {
         <div className="container-fluid col-6" style={{ margin: "auto", marginTop: "70px" }}>
             <div className="alert alert-danger">
                 <strong>Ops!</strong> The page that you are looking for is not exist - &nbsp;
-                <Link to="/" className="text-primary">Kembali kehalaman utama</Link>
+                <Link to="/" className="alert-link">Kembali kehalaman utama</Link>
             </div>
         </div>
     )

@@ -32,7 +32,7 @@ function App() {
                             <Route path="dash" element={<DashLayout />}>
                                 {/*Begin DashLayout*/}
                                 <Route index element={<Welcome />} />
-                                <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.Manager]} />}>
+                                <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
                                     <Route path="users">
                                         <Route index element={<UsersList />} />
                                         <Route path=":id" element={<EditUser />} />
