@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
+import useTitle from "../hooks/useTitle"
 const NotFound = () => {
+    useTitle('404 Not Found')
     return (
         <div className="container-fluid col-6" style={{ margin: "auto", marginTop: "70px" }}>
             <div className="alert alert-danger">

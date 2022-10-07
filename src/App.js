@@ -15,8 +15,10 @@ import PersistLogin from "./features/auth/PersistLogin";
 import RequireAuth from "./features/auth/RequireAuth";
 import { ROLES } from './config/roles';
 import NotFound from "./components/NotFound";
+import useTitle from "./hooks/useTitle";
 
 function App() {
+    useTitle('techNotes Repairs Report')
     return (
         <Routes>
             <Route path="*" element={<NotFound />} />

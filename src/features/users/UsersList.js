@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Spinner from "../../components/Spinner";
+import useTitle from "../../hooks/useTitle";
 
 const UsersList = () => {
+    useTitle('Users List')
     const navigate = useNavigate();
     const {
         data: users,

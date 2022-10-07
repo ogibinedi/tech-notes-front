@@ -10,8 +10,10 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import usePersist from "../../hooks/usePersist";
 import Spinner from "../../components/Spinner";
+import useTitle from "../../hooks/useTitle"
 
 const Login = () => {
+    useTitle('Login Credential')
     const userRef = useRef();
     const errRef = useRef();
     const [username, setUsername] = useState("");

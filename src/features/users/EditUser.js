@@ -1,14 +1,26 @@
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectUserById } from "./usersApiSlice";
 import EditUserForm from "./EditUserForm";
 import Spinner from "../../components/Spinner";
 
+import { useGetUsersQuery } from "./usersApiSlice";
+import useTitle from "../../hooks/useTitle";
+
 const EditUser = () => {
-  const { id } = useParams();
-  const user = useSelector((state) => selectUserById(state, id));
-  const content = user ? <EditUserForm user={user} /> : <Spinner />;
-  return content;
+    useTitle('Edit User')
+    const { id } = useParams();
+
+    const { user } = useGetUsersQuery("usersList", {
+        selectFromResult: ({ data }) => ({
+            user: data?.entities[id]
+        })
+    })
+
+    if (!user) return <Spinner />
+
+    const content = <EditUserForm user={user} />;
+
+
+    return content;
 };
 
 export default EditUser;

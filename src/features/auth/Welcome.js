@@ -8,8 +8,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import useTitle from "../../hooks/useTitle";
 
 const Welcome = () => {
+    useTitle('techNotes Dashboard')
     const { username, isAdmin } = useAuth();
     const date = new Date();
     const today = new Intl.DateTimeFormat("en-US", {
